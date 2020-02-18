@@ -24,19 +24,7 @@
 	<script src="viewportchecker.js"></script>
 
 
-	<script type="text/javascript">
-		$(document).on('ready', function() {
-			$(".center").slick({
-				dots: true,
-				infinite: true,
-				autoplay: true,
-				autoplaySpeed: 2000,
-				centerMode: true,
-				slidesToShow: 5,
-				slidesToScroll: 3
-			});
-		});
-	</script>
+
 
 	<script type="text/javascript">
 		$(document).on('ready', function() {
@@ -70,6 +58,15 @@
 
 			<div class="layout-cell-2 max-9 desktop-9 tablet-6 mobile-3 min-3">
 				<div class="block">
+										<div class="hamburger">
+						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+						width="40px" height="40px" viewBox="0 0 124 124 "
+						xml:space="preserve">
+						<path d="M112,6H12C5.4,6,0,11.4,0,18s5.4,12,12,12h100c6.6,0,12-5.4,12-12S118.6,6,112,6z" />
+						<path d="M112,50H12C5.4,50,0,55.4,0,62c0,6.6,5.4,12,12,12h100c6.6,0,12-5.4,12-12C124,55.4,118.6,50,112,50z" />
+						<path d="M112,94H12c-6.6,0-12,5.4-12,12s5.4,12,12,12h100c6.6,0,12-5.4,12-12S118.6,94,112,94z" />
+					</svg>
+				</div>
 					<ul id="navbar">
 						<li class="has-no-submenu has-no-widget">
 							<a href="home.html" target="_self">
@@ -153,7 +150,7 @@
 
 	<section class="ios-first">
 		<div class="row">
-			<div class="layout max-6 desktop-6 tablet-4 mobile-3 min-3">
+			<div class="layout max-6 desktop-6 tablet-3 mobile-3 min-3">
 				<h2>IOS APP</h2>
 				<h5>DEVELOPMENT</h5>
 				<p><a href="#">SparkleAppz</a> have experience of more than 10 years in making world’s leading brands go mobile by developing inspiring apps in Apple platform. Add boost to your business needs by using our expertise in <a href="#">iOS app development</a> to build beautiful, <a href="#">engaging</a> and <a href="#">seamless</a> app.</p>
@@ -161,7 +158,7 @@
 				<p><a href="contact.html">Our Portfolio</a></p>
 			</div>
 
-			<div class="layout-cell max-6 desktop-6 tablet-4 mobile-3 min-3">
+			<div class="layout-cell max-6 desktop-6 tablet-3 mobile-3 min-3">
 				<p><img src="img/img_slider.png"></p>
 			</div>
 		</div>
@@ -402,27 +399,27 @@
 
 <section class="soc">
 	<div class="row">
-		<div class="layout-cell max-2 desktop-2 tablet-3 mobile-1 min-1">
+		<div class="layout-cell max-2 desktop-2 tablet-1 mobile-1 min-1">
 			<p><a href="#"><img src="img/sc-1.png"><span>Facebook</span></a></p>
 		</div>
 
-		<div class="layout-cell max-2 desktop-2 tablet-3 mobile-1 min-1">
+		<div class="layout-cell max-2 desktop-2 tablet-1 mobile-1 min-1">
 			<p><a href="#"><img src="img/sc-2.png"><span>Twitter</span></a></p>
 		</div>
 
-		<div class="layout-cell max-2 desktop-2 tablet-3 mobile-1 min-1">
+		<div class="layout-cell max-2 desktop-2 tablet-1 mobile-1 min-1">
 			<p><a href="#"><img src="img/sc-3.png"><span>Instagram</span></a></p>
 		</div>
 
-		<div class="layout-cell max-2 desktop-2 tablet-3 mobile-1 min-1">
+		<div class="layout-cell max-2 desktop-2 tablet-1 mobile-1 min-1">
 			<p><a href="#"><img src="img/sc-4.png"><span>Linkedin</span></a></p>
 		</div>
 
-		<div class="layout-cell max-2 desktop-2 tablet-3 mobile-1 min-1">
+		<div class="layout-cell max-2 desktop-2 tablet-1 mobile-1 min-1">
 			<p><a href="#"><img src="img/sc-5.png"><span>Clutch</span></a></p>
 		</div>
 
-		<div class="layout-cell max-2 desktop-2 tablet-3 mobile-1 min-1">
+		<div class="layout-cell max-2 desktop-2 tablet-1 mobile-1 min-1">
 			<p><a href="#"><img src="img/sc-6.png"><span>Upwork</span></a></p>
 		</div>
 
@@ -511,6 +508,88 @@
 				return false;
 			});
 		});
+	</script>
+
+		<script type="text/javascript">
+		function resize() {
+			var menu = $('.main-menu #navbar');
+			var header = $('.main-menu');
+			var ham = $('.hamburger');
+			var widthHead = header.width();
+			if (widthHead < 979) {
+				menu.css({'display':'none'});
+				header.addClass('mobile');
+				ham.css({'display':'inherit'});
+			} else {
+				menu.css({'display':'flex'});
+				header.removeClass('mobile');
+				ham.css({'display':'none'});
+			}
+
+		}
+		resize();
+
+
+		$('.hamburger').click(function(){
+			element = $('#navbar');
+			display = element.css('display');
+			if(display == 'none')
+				$('#navbar').slideDown(0);
+			if(display == 'block')
+				$('#navbar').slideUp(0);
+		});
+
+		$('#navbar a').click(function(){
+			var header = $('.main-menu');
+			var widthHead = header.width();
+			if(widthHead < 963)
+				$('#navbar').slideUp(0);
+		});
+
+		$(window).resize(function() {
+			resize();
+		});
+	</script>
+
+	<script type="text/javascript">
+        if(document.documentElement.clientWidth > 979) {  
+
+			
+			$(".center").slick({
+				dots: true,
+				infinite: true,
+				autoplay: true,
+				autoplaySpeed: 2000,
+				centerMode: true,
+				slidesToShow: 5,
+				slidesToScroll: 3
+			});
+		} if(document.documentElement.clientWidth < 740) {
+			$(".center").slick({
+				dots: true,
+				infinite: true,
+				autoplay: true,
+				autoplaySpeed: 2000,
+				centerMode: true,
+				slidesToShow: 1,
+				slidesToScroll: 2
+			});
+		}
+
+		if(document.documentElement.clientWidth > 739 & document.documentElement.clientWidth < 980) {  
+			$(".center").slick({
+				dots: true,
+				infinite: true,
+				autoplay: true,
+				autoplaySpeed: 2000,
+				centerMode: true,
+				slidesToShow: 2,
+				slidesToScroll: 2
+			});
+		}
+			
+
+
 	</script>
 
 		<script src="owl.carousel.min.js"></script>
